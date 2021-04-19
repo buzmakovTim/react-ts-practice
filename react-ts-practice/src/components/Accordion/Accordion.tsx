@@ -1,17 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
+import AccordionBody from './AccordionBody/AccordionBody';
+import AccordionTitle from './AccordionTitle/AccordionTitle';
+import c from './Accordion.module.css';
 
-function Accordion() {
+type AccordionPropsType = {
+  title: string;
+};
+
+const Accordion: React.FC<AccordionPropsType> = ({ title }) => {
+  let [collapsed, setCollapsed] = useState(false);
+
   return (
     <div>
-      <h3>Menu</h3>
-      <ul>
-        <li>1</li>
-        <li>2</li>
-        <li>3</li>
-        <li>4</li>
-      </ul>
+      <AccordionTitle title={title} />
+      <button
+        className={c.showOrNot}
+        onClick={() => {
+          setCollapsed(!collapsed);
+        }}
+      >
+        Show or Not
+      </button>
+      {!collapsed && <AccordionBody />}
     </div>
   );
-}
+};
 
 export default Accordion;

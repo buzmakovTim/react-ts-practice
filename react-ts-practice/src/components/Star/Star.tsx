@@ -1,4 +1,7 @@
 import React from 'react';
+import starOn from '../../images/starOn.png';
+import starOff from '../../images/starOff.png';
+import c from './Star.module.css';
 
 type StarPropsType = {
   selected: boolean;
@@ -7,12 +10,16 @@ type StarPropsType = {
 function Star(props: StarPropsType) {
   if (props.selected === true) {
     return (
-      <span>
-        <b>Star </b>
-      </span>
+      <>
+        <img className={c.star} src={starOn} alt="" />
+      </>
     );
   } else {
-    return <span>Star </span>;
+    return (
+      <>
+        <img className={c.star} src={starOff} alt="" />
+      </>
+    );
   }
 }
 

@@ -1,0 +1,9 @@
+.showOrNot {
+  background-color: rgb(223, 223, 223);
+  border: 1px solid rgb(223, 223, 223);
+  border-radius: 10%;
+}
+
+.showOrNot:focus {
+  outline: none;
+}
