@@ -5,19 +5,35 @@ import c from './Star.module.css';
 
 type StarPropsType = {
   selected: boolean;
+  starSelected: number;
+  changeRating: (starSelected: number) => void;
 };
 
 function Star(props: StarPropsType) {
   if (props.selected === true) {
     return (
       <>
-        <img className={c.star} src={starOn} alt="" />
+        <img
+          onClick={() => {
+            props.changeRating(props.starSelected);
+          }}
+          className={c.star}
+          src={starOn}
+          alt=""
+        />
       </>
     );
   } else {
     return (
       <>
-        <img className={c.star} src={starOff} alt="" />
+        <img
+          onClick={() => {
+            props.changeRating(props.starSelected);
+          }}
+          className={c.star}
+          src={starOff}
+          alt=""
+        />
       </>
     );
   }

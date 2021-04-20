@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Star from '../Star/Star';
 
 type RatingPropsType = {
@@ -17,14 +17,43 @@ const Rating: React.FC<RatingPropsType> = ({ value }) => {
   //     stars.push(<Star selected={false} />);
   //   }
   // }
+  let [valueToChange, setValue] = useState(0);
+
+  function changeRating(starSelected: number) {
+    if (valueToChange === starSelected) {
+      setValue(starSelected - 1);
+    } else {
+      setValue(starSelected);
+    }
+  }
 
   return (
     <div>
-      <Star selected={value > 0} />
-      <Star selected={value > 1} />
-      <Star selected={value > 2} />
-      <Star selected={value > 3} />
-      <Star selected={value > 4} />
+      <Star
+        selected={valueToChange > 0}
+        starSelected={1}
+        changeRating={changeRating}
+      />
+      <Star
+        selected={valueToChange > 1}
+        starSelected={2}
+        changeRating={changeRating}
+      />
+      <Star
+        selected={valueToChange > 2}
+        starSelected={3}
+        changeRating={changeRating}
+      />
+      <Star
+        selected={valueToChange > 3}
+        starSelected={4}
+        changeRating={changeRating}
+      />
+      <Star
+        selected={valueToChange > 4}
+        starSelected={5}
+        changeRating={changeRating}
+      />
     </div>
   );
 };
