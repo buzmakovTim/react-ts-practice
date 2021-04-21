@@ -34,6 +34,8 @@ function Star(props: StarPropsType) {
     </>
   );
 
+  // OR
+  //
   // if (props.selected === true) {
   //   return (
   //     <>

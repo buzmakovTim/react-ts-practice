@@ -18,15 +18,6 @@ const Accordion: React.FC<AccordionPropsType> = ({ title }) => {
     <div>
       <AccordionTitle title={title} accordionCollapsed={accordionCollapsed} />
       {collapsed ? <AccordionBody /> : ''}
-      {/* <button
-        className={c.showOrNot}
-        onClick={() => {
-          setCollapsed(!collapsed);
-        }}
-      >
-        Show or Not
-      </button>
-      {!collapsed && <AccordionBody />} */}
     </div>
   );
 };
