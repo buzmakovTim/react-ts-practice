@@ -10,10 +10,15 @@ type AccordionPropsType = {
 const Accordion: React.FC<AccordionPropsType> = ({ title }) => {
   let [collapsed, setCollapsed] = useState(false);
 
+  function accordionCollapsed() {
+    setCollapsed(!collapsed);
+  }
+
   return (
     <div>
-      <AccordionTitle title={title} />
-      <button
+      <AccordionTitle title={title} accordionCollapsed={accordionCollapsed} />
+      {collapsed ? <AccordionBody /> : ''}
+      {/* <button
         className={c.showOrNot}
         onClick={() => {
           setCollapsed(!collapsed);
@@ -21,7 +26,7 @@ const Accordion: React.FC<AccordionPropsType> = ({ title }) => {
       >
         Show or Not
       </button>
-      {!collapsed && <AccordionBody />}
+      {!collapsed && <AccordionBody />} */}
     </div>
   );
 };

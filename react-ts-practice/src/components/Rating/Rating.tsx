@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Star from '../Star/Star';
 
 type RatingPropsType = {
-  value: 0 | 1 | 2 | 3 | 4 | 5;
+  value: 0 | 1 | 2 | 3 | 4 | 5; // we don't use it
 };
 
 const Rating: React.FC<RatingPropsType> = ({ value }) => {
@@ -20,11 +20,17 @@ const Rating: React.FC<RatingPropsType> = ({ value }) => {
   let [valueToChange, setValue] = useState(0);
 
   function changeRating(starSelected: number) {
-    if (valueToChange === starSelected) {
-      setValue(starSelected - 1);
-    } else {
-      setValue(starSelected);
-    }
+    valueToChange === starSelected
+      ? setValue(starSelected - 1)
+      : setValue(starSelected);
+
+    // OR
+    //
+    // if (valueToChange === starSelected) {
+    //   setValue(starSelected - 1);
+    // } else {
+    //   setValue(starSelected);
+    // }
   }
 
   return (

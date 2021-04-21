@@ -10,33 +10,57 @@ type StarPropsType = {
 };
 
 function Star(props: StarPropsType) {
-  if (props.selected === true) {
-    return (
-      <>
-        <img
-          onClick={() => {
-            props.changeRating(props.starSelected);
-          }}
-          className={c.star}
-          src={starOn}
-          alt=""
-        />
-      </>
-    );
-  } else {
-    return (
-      <>
-        <img
-          onClick={() => {
-            props.changeRating(props.starSelected);
-          }}
-          className={c.star}
-          src={starOff}
-          alt=""
-        />
-      </>
-    );
-  }
+  return props.selected ? (
+    <>
+      <img
+        onClick={() => {
+          props.changeRating(props.starSelected);
+        }}
+        className={c.star}
+        src={starOn}
+        alt=""
+      />
+    </>
+  ) : (
+    <>
+      <img
+        onClick={() => {
+          props.changeRating(props.starSelected);
+        }}
+        className={c.star}
+        src={starOff}
+        alt=""
+      />
+    </>
+  );
+
+  // if (props.selected === true) {
+  //   return (
+  //     <>
+  //       <img
+  //         onClick={() => {
+  //           props.changeRating(props.starSelected);
+  //         }}
+  //         className={c.star}
+  //         src={starOn}
+  //         alt=""
+  //       />
+  //     </>
+  //   );
+  // } else {
+  //   return (
+  //     <>
+  //       <img
+  //         onClick={() => {
+  //           props.changeRating(props.starSelected);
+  //         }}
+  //         className={c.star}
+  //         src={starOff}
+  //         alt=""
+  //       />
+  //     </>
+  //   );
+  // }
 }
 
 export default Star;
