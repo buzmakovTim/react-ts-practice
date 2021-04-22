@@ -6,7 +6,7 @@ type OnOffPropsType = {
   //isOn: boolean;
 };
 
-const OnOff: React.FC<OnOffPropsType> = ({}) => {
+export const OnOff: React.FC<OnOffPropsType> = ({}) => {
   let [isOn, setOn] = useState(false);
 
   const onStyle = {

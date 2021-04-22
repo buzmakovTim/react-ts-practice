@@ -17,7 +17,7 @@ export const Rating: React.FC<RatingPropsType> = ({ value }) => {
   //     stars.push(<Star selected={false} />);
   //   }
   // }
-  let [valueToChange, setValue] = useState<number>(value);
+  let [valueToChange, setValue] = useState<number>(0);
 
   function changeRating(starSelected: number) {
     valueToChange === starSelected
