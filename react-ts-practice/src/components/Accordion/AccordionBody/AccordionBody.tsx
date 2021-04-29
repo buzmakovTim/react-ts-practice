@@ -1,15 +1,17 @@
 import React from 'react';
+import { ItemType } from '../../../App';
 
-type AccordionBodyPropsType = {};
 
-const AccordionBody: React.FC<AccordionBodyPropsType> = ({}) => {
+type AccordionBodyPropsType = {
+  items: ItemType[]
+  onClick: (value: any) => void 
+};
+
+const AccordionBody: React.FC<AccordionBodyPropsType> = ({items, onClick}) => {
   return (
     <div>
       <ul>
-        <li>1</li>
-        <li>2</li>
-        <li>3</li>
-        <li>4</li>
+        {items.map((i) => <li onClick={ () => {onClick(i.value)}} key={i.value}>{i.title}</li>)}
       </ul>
     </div>
   );
