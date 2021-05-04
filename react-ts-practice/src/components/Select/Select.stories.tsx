@@ -7,6 +7,6 @@ export default {
     component: Select,
 }
 
-let items = ['One', 'Two', 'Three'];
+let items = [{value: 1, title: 'One'}, {value: 2, title: 'Two'}, {value: 3, title: 'Three'}];
 
 export const TwoElements = () => <Select items={items}/>

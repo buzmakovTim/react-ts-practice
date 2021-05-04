@@ -2,6 +2,8 @@
     width: 100px;
     /* padding: 3px; */
     /* background-color: rgb(235, 235, 235); */
+    position: absolute;
+    box-shadow: grey;
 }
 
 .item {
@@ -14,4 +16,11 @@
     /* margin: 0 5px; */
     background-color: rgb(209, 209, 209);
     /* font-weight: bold; */
+}
+
+.title {
+    width: 100px;
+    border: 1px grey double;
+    padding: 5px;
+    background-color: rgb(231, 231, 231);
 }
