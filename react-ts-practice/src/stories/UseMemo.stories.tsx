@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useCallback, useMemo, useState } from 'react';
 
 export default {
     title: 'useMemo',
@@ -58,8 +58,6 @@ export const DifficultCountingExample = () => {
 
 // useMemo helps to React.Memo
 
-
-
 // This how we created a Type for the props
 const UsersSecrets = (props: {users: Array<string>}) => {
     console.log('USERS SECRET')
@@ -101,5 +99,57 @@ export const Example = () => {
     </>
 
 }
+//
+//
+// useCallback    Begin
+//
+//
+export const LikeUseCallBack = () => {
 
+    console.log('LikeUseCallBack')
+    const[counter, setCounter] = useState(0)
+    const[books, setBooks] = useState(['Jeact', 'JS', 'HTML', 'CSS'])
+
+    const addBook = () => {
+        console.log(books)
+        const newBooks = [...books, 'Angular' + new Date().getTime()]
+        setBooks(newBooks)
+    }
+
+    // Using useMemo we can achieve the same result
+    const memorizeAddBook = useMemo( () => {
+        return addBook
+    }, [books])
+    // or we can use useCallback
+    const memorizeAddBook2 = useCallback(
+        () => {
+            addBook()
+        },
+        [books],
+    )
     
+    return <>
+        <button onClick={ () => setCounter(counter + 1)}>+</button>
+        {counter}
+        <Book addBook={memorizeAddBook2}/>
+    </>
+}
+
+type BookSecretPropsType = {
+    addBook: () => void
+}
+const BookSecret = (props: BookSecretPropsType) => {
+    console.log('BookSecret')
+    return <div>
+        <button onClick={ () => {props.addBook()} }>add book</button>
+    </div>
+}
+
+const Book = React.memo(BookSecret)
+//
+//
+// useCallback    end
+//
+//
+
+// To start Storybook:  yarn storybook
