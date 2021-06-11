@@ -62,7 +62,7 @@ export const Clock = () => {
         setInterval( () => {
             let time = new Date()        
 
-            setHour(state => state = Number(time.getHours() % 12 || 12))
+            setHour(state => state = Number(time.getHours() % 12 || 12)) // % 12 || 12  for 12 hours. without it it will be 24 hours.
             setMinute(state => state = Number(time.getMinutes()))
             setSecond(state => state = Number(time.getSeconds()))
 
